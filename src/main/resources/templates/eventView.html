@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    
+    <title th:text="${event.title}">Заголовок</title>
+    
+    <div th:replace="fragments/layout/headContent :: head">Head</div>
+    
+</head>
+<body>
+    
+    <!-- Шаблон для отображения событий  -->
+    
+    <div th:replace="fragments/layout/header :: header">Header</div>
+    
+    <div th:replace="fragments/layout/menu :: menu">Menu</div>
+    
+    <div id="content">
+                        
+        <h4 th:text="${event.getTitle()}">Заголовок</h4>
+        <p th:text="${event.getText()}">Текст</p>
+
+    </div>
+    
+    <div th:replace="fragments/layout/footer :: footer">Footer</div>
+    
+</body>
+</html>

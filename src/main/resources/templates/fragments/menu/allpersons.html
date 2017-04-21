@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Persons</title>
+</head>
+<body>
+    
+    <!-- Страница меню: Список сотрудников -->
+    
+    <div class="person-list" th:fragment="allpersons" th:each="person : ${persons}">
+        <h4>
+            <a th:href="${'person?id=' + person.getId()}" style="text-align: left;">
+                <span th:text="${person.getName()}" th:remove="tag">ФИО</span>
+                <em th:text="${person.getPosition()}">Должность</em>
+            </a>
+        </h4>
+        <p>
+            <span th:text="${person.getPhone()}" th:remove="tag"></span>
+            <a th:href="${'mailto:' + person.getEmail()}">Email</a>
+        </p>
+    </div>
+        
+</body>
+</html>

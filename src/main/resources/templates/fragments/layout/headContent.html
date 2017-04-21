@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+
+    <!-- Содержимое заголовков страниц -->
+    
+    <div th:fragment="head">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script type="text/javascript" src="/static/js/jquery.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.infieldlabel.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.hashchange.min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.easytabs.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.urlToLink.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.urlToImage.js"></script>
+        <script>
+            $(document).ready( function() {                          
+                $('#tab-container').easytabs({updateHash: false,animationSpeed: 200});                            
+            });
+        </script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $('p').urlToLink();
+            });
+        </script>    
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $('a').urlToImage();
+            });
+        </script>  
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                /*Start DocumentReady*/
+                var url=document.location.href;
+                 $.each($("#menu a"),function(){
+                  if(this.href==url){$(this).addClass('active');};
+                 });
+                /*End DocumentReady*/
+            });   
+        </script>  
+        <link rel="shortcut icon" th:href="@{/static/images/favicon.png}" type="image/x-icon"/>
+        <link rel="apple-touch-icon" th:href="@{/static/images/apple-touch-icon.png}"/>
+        <link rel="apple-touch-icon" sizes="114x114" th:href="@{/static/images/apple-touch-icon-retina.png}"/>
+        <link rel="stylesheet" href="/static/css/main.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/mobile.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/persons.css" type="text/css"/>             
+        <link rel="stylesheet" href="/static/css/all.css" type="text/css"/> 
+    </div>
+    
+</body>
+</html>
