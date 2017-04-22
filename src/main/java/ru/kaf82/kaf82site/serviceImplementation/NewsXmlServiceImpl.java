@@ -1,6 +1,7 @@
 package ru.kaf82.kaf82site.serviceImplementation;
 
-import java.io.File;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import ru.kaf82.kaf82site.dto.NewDto;
 import ru.kaf82.kaf82site.dto.NewDtoContainer;
 import ru.kaf82.kaf82site.service.NewsXmlService;
+import ru.kaf82.kaf82site.staticXML.News;
 
 /**
  * Реализация сервиса Xml-обработки новостей
@@ -62,8 +64,8 @@ public class NewsXmlServiceImpl implements NewsXmlService {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(NewDtoContainer.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            File file = new File(properties.getNewsXmlPath());
-            NewDtoContainer news = (NewDtoContainer)jaxbUnmarshaller.unmarshal(file);
+            Reader newsReader = new StringReader(News.getNews());
+            NewDtoContainer news = (NewDtoContainer)jaxbUnmarshaller.unmarshal(newsReader);
             return news.getNewDtos();
         }
         catch (JAXBException ex) {

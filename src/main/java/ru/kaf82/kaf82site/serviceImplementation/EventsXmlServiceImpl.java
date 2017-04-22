@@ -1,6 +1,8 @@
 package ru.kaf82.kaf82site.serviceImplementation;
 
-import java.io.File;
+
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import ru.kaf82.kaf82site.dto.EventDto;
 import ru.kaf82.kaf82site.dto.EventDtoContainer;
 import ru.kaf82.kaf82site.service.EventsXmlService;
+import ru.kaf82.kaf82site.staticXML.Events;
 
 /**
  * Реализация сервиса Xml-обработки событий
@@ -62,8 +65,8 @@ public class EventsXmlServiceImpl implements EventsXmlService {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(EventDtoContainer.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            File file = new File("/xml/events.xml");
-            EventDtoContainer events = (EventDtoContainer)jaxbUnmarshaller.unmarshal(file);
+            Reader eventsReader = new StringReader(Events.getEvents());
+            EventDtoContainer events = (EventDtoContainer)jaxbUnmarshaller.unmarshal(eventsReader);
             return events.getEventDtos();
         }
         catch (JAXBException ex) {

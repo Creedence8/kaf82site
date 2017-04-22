@@ -35,7 +35,7 @@ public class PropertyServiceImpl implements PropertyService {
      */
     @Override
     public String getEventsXmlPath() {
-        return "../../../../../templates.xml/events.templates.xml";
+        return pathToEventsXml;
     }
     
     /**

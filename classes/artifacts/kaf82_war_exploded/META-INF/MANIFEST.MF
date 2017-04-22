@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: kaf82site
-Implementation-Version: 1.1.0.0
-Built-By: Cole S' Offe
-Implementation-Vendor-Id: ru.kaf82site
-Created-By: IntelliJ IDEA
-Build-Jdk: 1.8.0_102
-Main-Class: ru.kaf82.kaf82site.MainApplication
-

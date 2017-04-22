@@ -1,6 +1,8 @@
 package ru.kaf82.kaf82site.serviceImplementation;
 
 import java.io.File;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 import ru.kaf82.kaf82site.dto.PersonDto;
 import ru.kaf82.kaf82site.dto.PersonDtoContainer;
 import ru.kaf82.kaf82site.service.PersonsXmlService;
+import ru.kaf82.kaf82site.staticXML.Events;
+import ru.kaf82.kaf82site.staticXML.Persons;
 
 /**
  * Реализация сервиса Xml-обработки преподавателей
@@ -76,8 +80,8 @@ public class PersonsXmlServiceImpl implements PersonsXmlService {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(PersonDtoContainer.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            File file = new File(properties.getPersonsXmlPath());
-            PersonDtoContainer events = (PersonDtoContainer)jaxbUnmarshaller.unmarshal(file);
+            Reader personsReader = new StringReader(Persons.getPersons());
+            PersonDtoContainer events = (PersonDtoContainer)jaxbUnmarshaller.unmarshal(personsReader);
             return events.getEventDtos();
         }
         catch (JAXBException ex) {
