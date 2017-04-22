@@ -82,7 +82,12 @@ public class PersonsXmlServiceImpl implements PersonsXmlService {
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             Reader personsReader = new StringReader(Persons.getPersons());
             PersonDtoContainer events = (PersonDtoContainer)jaxbUnmarshaller.unmarshal(personsReader);
-            return events.getEventDtos();
+            List<PersonDto> foo = events.getEventDtos();
+            Reader personsReader2 = new StringReader(Persons.getPersons2());
+            PersonDtoContainer events2 = (PersonDtoContainer)jaxbUnmarshaller.unmarshal(personsReader2);
+            List<PersonDto> bar = events2.getEventDtos();
+            foo.addAll(bar);
+            return foo;
         }
         catch (JAXBException ex) {
             //ex.printStackTrace();
