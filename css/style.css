@@ -9,6 +9,8 @@
     margin-top: 0px;
 }
 
+#first-screen {padding:0px;}
+
 .item-img {
     text-align: center;
 }
@@ -32,10 +34,48 @@ h3.carousel-caption-text {
     border-radius: 20px;
 }
 
+.fullscreen {
+    height: 100vh;
+    padding: 0px;
+}
+
+.small-container {
+    padding-left: 7%;
+    margin-top: 0px;
+}
+
+.small-container>h3 {margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.pink-label {color: #c82a72;
+    margin-top: 0px;
+}
+
+.blue-label {color: #32c3d0;
+    float:left;
+    margin-top: 0px;
+}
+
+#contacts li {list-style-type: none;
+    }
+
+#contacts li i {
+    padding-left: 1%;
+    color: #32c3d0;
+    font-size: 18px;
+    line-height: 1.3;
+}
+div.route {text-align: center;
+ }
 
 
-
-
+a.route {
+    margin-top: 7%;
+    font-size: 30px;
+    line-height: 1.3;
+    border: none;
+    }
 
 .footer {
 	margin-bottom: 0px;
