@@ -1,0 +1,46 @@
+.title {
+    padding-top: 0;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.title>h1 {
+    line-height: 1.3;
+    margin-top: 0px;
+}
+
+.item-img {
+    text-align: center;
+}
+
+.carousel-caption-text {
+    font-size: 12px;
+}
+p.carousel-caption-text {
+    padding-bottom: 2%;
+}
+
+h3.carousel-caption-text {
+    font-weight: bold;
+
+}
+
+.carousel-caption {
+    background: dimgray;
+    opacity: 0.95;
+    padding: 0px;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+.footer {
+	margin-bottom: 0px;
+}
+
+ .navbar-text>a {
+	 color: #939393;
+ }
